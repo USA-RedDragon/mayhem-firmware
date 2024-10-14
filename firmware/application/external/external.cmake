@@ -106,7 +106,10 @@ set(EXTCPPSRC
 	#acars
 	external/acars_rx/main.cpp
 	external/acars_rx/acars_app.cpp
-	
+
+	#p25_scanner
+	external/p25_scanner/main.cpp
+	external/p25_scanner/ui_p25_scanner.cpp
 )
 
 set(EXTAPPLIST
@@ -135,4 +138,5 @@ set(EXTAPPLIST
 	sstvtx
 	random_password
 	#acars_rx
+	p25_scanner
 )

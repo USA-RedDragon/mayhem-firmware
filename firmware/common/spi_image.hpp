@@ -118,6 +118,8 @@ constexpr image_tag_t image_tag_weather{'P', 'W', 'T', 'H'};
 constexpr image_tag_t image_tag_subghzd{'P', 'S', 'G', 'D'};
 constexpr image_tag_t image_tag_protoview{'P', 'P', 'V', 'W'};
 
+constexpr image_tag_t image_tag_4fsk_rx{'P', '4', 'K', 'R'};
+
 constexpr image_tag_t image_tag_noop{'P', 'N', 'O', 'P'};
 
 constexpr image_tag_t image_tag_hackrf{'H', 'R', 'F', '1'};

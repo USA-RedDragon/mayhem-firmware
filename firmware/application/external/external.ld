@@ -48,6 +48,7 @@ MEMORY
     ram_external_app_sstvtx(rwx) : org = 0xADC70000, len = 32k
     ram_external_app_random_password(rwx) : org = 0xADC80000, len = 32k
     ram_external_app_acars_rx(rwx) : org = 0xADC90000, len = 32k
+    ram_external_app_p25_scanner(rwx) : org = 0xADCA0000, len = 32k
 }
 
 SECTIONS
@@ -204,6 +205,11 @@ SECTIONS
         *(*ui*external_app*acars_rx*);
     } > ram_external_app_acars_rx
 
+    .external_app_p25_scanner : ALIGN(4) SUBALIGN(4)
+    {
+        KEEP(*(.external_app.app_p25_scanner.application_information));
+        *(*ui*external_app*p25_scanner*);
+    } > ram_external_app_p25_scanner
 
 
 

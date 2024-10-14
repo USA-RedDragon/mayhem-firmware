@@ -514,6 +514,12 @@ set(MODE_CPPSRC
 )
 DeclareTargets(PWTH weather)
 
+### 4FSK RX
+
+set(MODE_CPPSRC
+	proc_4fsk_rx.cpp
+)
+DeclareTargets(P4KR 4fskrx)
 
 ### Flash Utility
 
