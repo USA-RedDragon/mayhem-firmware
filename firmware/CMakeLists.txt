@@ -39,7 +39,7 @@ set(PPFW_FILENAME "portapack-mayhem_OCI.ppfw.tar")
 
 # In our current build container cmake need a little help to get the version :)
 if(NOT DEFINED ${CMAKE_CXX_COMPILER_VERSION})
-	execute_process(COMMAND bash "-c" "arm-none-eabi-g++ -v 2>&1 | grep 'gcc version' | awk '{print $3}'" OUTPUT_VARIABLE CMAKE_CXX_COMPILER_VERSION)
+	execute_process(COMMAND sh "-c" "arm-none-eabi-g++ -v 2>&1 | grep 'gcc version' | awk '{print $3}'" OUTPUT_VARIABLE CMAKE_CXX_COMPILER_VERSION)
 	string(STRIP ${CMAKE_CXX_COMPILER_VERSION} CMAKE_CXX_COMPILER_VERSION)
 endif()
 

@@ -51,7 +51,7 @@ else()
 endif()
 
 execute_process(
-	COMMAND bash "-c" "echo ${VERSION} | md5sum | head -c 8"
+	COMMAND sh "-c" "echo ${VERSION} | md5sum | head -c 8"
 	OUTPUT_VARIABLE VERSION_MD5
 )
 set(VERSION_MD5 "0x${VERSION_MD5}")
