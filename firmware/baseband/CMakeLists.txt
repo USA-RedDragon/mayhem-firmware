@@ -268,6 +268,8 @@ set(BASEBAND_IMAGES)
 set(BASEBAND_EXTERNAL_IMAGES)
 
 macro(DeclareTargets chunk_tag name)
+	option(DISABLE_BASEBAND_${name} "Disable ${name} baseband app" OFF)
+	if(NOT DISABLE_BASEBAND_${name})
 	project("baseband_${name}")
 
 	include(${RULESPATH}/rules.cmake)
@@ -306,6 +308,7 @@ macro(DeclareTargets chunk_tag name)
 
 		set(BASEBAND_EXTERNAL_IMAGES ${BASEBAND_EXTERNAL_IMAGES} ${chunk_tag}.bin)
 
+		endif()
 	endif()
 
 
