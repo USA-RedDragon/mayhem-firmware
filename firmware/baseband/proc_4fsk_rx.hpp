@@ -35,8 +35,12 @@ class FourFSKRxProcessor : public BasebandProcessor {
     void on_message(const Message* const message) override;
 
    private:
-    size_t baseband_fs = 20'000'000;
+    static constexpr size_t baseband_fs = 20'000'000;
+
     void configure();
+
+    /* Set once app is ready to receive messages. */
+    bool configured = false;
 
     /* NB: Threads should be the last members in the class definition. */
     BasebandThread baseband_thread{baseband_fs, this, baseband::Direction::Receive};

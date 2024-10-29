@@ -184,6 +184,12 @@ void set_fsk(const size_t deviation) {
     send_message(&message);
 }
 
+void set_4fsk() {
+    const FourFSKConfigureMessage message{};
+
+    send_message(&message);
+}
+
 void set_afsk_data(const uint32_t afsk_samples_per_bit, const uint32_t afsk_phase_inc_mark, const uint32_t afsk_phase_inc_space, const uint8_t afsk_repeat, const uint32_t afsk_bw, const uint8_t symbol_count) {
     const AFSKTxConfigureMessage message{
         afsk_samples_per_bit,

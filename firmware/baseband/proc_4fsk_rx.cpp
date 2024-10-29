@@ -27,6 +27,10 @@ FourFSKRxProcessor::FourFSKRxProcessor() {
 }
 
 void FourFSKRxProcessor::execute(const buffer_c8_t& buffer) {
+    (void)buffer;
+    if (!configured) {
+        return;
+    }
 }
 
 void FourFSKRxProcessor::configure() {
@@ -34,6 +38,9 @@ void FourFSKRxProcessor::configure() {
 
 void FourFSKRxProcessor::on_message(const Message* const message) {
     switch (message->id) {
+        case Message::ID::FourFSKConfigure:
+            configured = true;
+            break;
         default:
             break;
     }

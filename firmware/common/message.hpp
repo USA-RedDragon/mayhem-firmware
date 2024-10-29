@@ -127,6 +127,7 @@ class Message {
         FreqChangeCommand = 70,
         I2CDevListChanged = 71,
         LightData = 72,
+        FourFSKConfigure = 73,
         MAX
     };
 
@@ -1080,6 +1081,11 @@ class FSKConfigureMessage : public Message {
     const uint32_t samples_per_bit;
     const uint32_t shift;
     const uint32_t progress_notice;
+};
+
+class FourFSKConfigureMessage : public Message {
+   public:
+    constexpr FourFSKConfigureMessage(): Message{ID::FourFSKConfigure} {};
 };
 
 class FSKRxConfigureMessage : public Message {
