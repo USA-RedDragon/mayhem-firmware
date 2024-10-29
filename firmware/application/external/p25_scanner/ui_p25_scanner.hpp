@@ -23,7 +23,9 @@
 #define __UI_P25_SCANNER_H__
 
 #include "ui.hpp"
+#include "ui_freq_field.hpp"
 #include "ui_navigation.hpp"
+#include "ui_receiver.hpp"
 
 using namespace ui;
 
@@ -35,9 +37,32 @@ class P25ScannerView : public View {
     ~P25ScannerView();
 
     std::string title() const override { return "P25 Scanner"; };
+    void focus() override;
 
    private:
     NavigationView& nav_;
+    Labels labels{
+        {{0 * 8, 0 * 8}, "LNA:   VGA:   AMP:", Theme::getInstance()->fg_light->foreground}};
+
+    LNAGainField field_lna{
+        {4 * 8, 0 * 16}};
+
+    VGAGainField field_vga{
+        {11 * 8, 0 * 16}};
+
+    RFAmpField field_rf_amp{
+        {18 * 8, 0 * 16}};
+
+    RSSI rssi{
+        {20 * 8, 4, 7 * 8, 8},
+    };
+
+    AudioVolumeField field_volume{
+        {28 * 8, 0 * 16}};
+
+    RxFrequencyField field_frequency{
+        {0 * 8, 1 * 16},
+        nav_};
 };
 
 }  // namespace ui::external_app::p25_scanner

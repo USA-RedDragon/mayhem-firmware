@@ -29,12 +29,31 @@ using namespace ui;
 
 namespace ui::external_app::p25_scanner {
 
+void P25ScannerView::focus() {
+    field_lna.focus();
+}
+
 P25ScannerView::P25ScannerView(NavigationView& nav)
     : nav_{nav} {
-    baseband::run_image(portapack::spi_flash::image_tag_4fsk_rx);
+    // baseband::run_image(portapack::spi_flash::image_tag_4fsk_rx);
+    baseband::run_prepared_image(portapack::memory::map::m4_code.base());
+
+    add_children({&labels,
+                  &field_lna,
+                  &field_vga,
+                  &field_rf_amp,
+                  &rssi,
+                  &field_volume,
+                  &field_frequency,
+                });
+
+    baseband::set_4fsk();
+
+    receiver_model.enable();
 }
 
 P25ScannerView::~P25ScannerView() {
+    receiver_model.disable();
     baseband::shutdown();
 }
 
